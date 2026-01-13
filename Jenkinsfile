@@ -1,27 +1,29 @@
-pipeline{
+pipeline {
     agent any
-    
-         stage('Build'){
-        steps {
-            echo 'Building the application'
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/AshinShibu/jenkin-demo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Building..."
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Testing..."
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying..."
+            }
         }
     }
-    stage('Prepare'){
-        steps {
-            echo 'Preparing the application'
-        }
-    }
-    stage('Test'){
-        steps {
-            echo 'Testing the application'
-        }
-    }
-    stage('Deploy') {
-        steps {
-            echo 'Deploying the application'
-        }
-    }
-    
-    }
-   
 }
